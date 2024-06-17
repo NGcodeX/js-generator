@@ -3,6 +3,10 @@ name: Maven Site
 on:
   push:
     branches: [ main ]
+    paths:
+      - '.github/workflows/javadoc.yml'
+      - 'jsgenerator-core/**'
+      - 'pom.xml'
 
 jobs:
   build:
@@ -15,7 +19,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: 17
+          java-version: '17'
           # Given the fact that this is a multimodule project, build process will take long time so we activate caching
           # To know more: https://maven.apache.org/extensions/maven-build-cache-extension/cache.html
           cache: 'maven'
